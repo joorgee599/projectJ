@@ -1,9 +1,13 @@
 @extends('layout.main')
 
 @section('content')
+@can('admin.users.create')
+    
+
     <div class="class-12 m-4">
         <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-warning">Crear usuario</a>
     </div>
+    @endcan
     <div class="table-responsive">
         <table id="tablaUsuarios" class="table table-border table-hover">
             <thead>
@@ -21,8 +25,16 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>
+                            @if ($permissions['edit'])
+                                
+                            
                             <a href="" class="btn btn-sm btn-warning">Editar</a>
+                            @endif
+                            @if ($permissions['destroy'])
+                                
+                            
                             <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+                            @endif
                         </td>
 
                     </tr>

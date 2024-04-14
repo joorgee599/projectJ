@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -13,17 +14,19 @@ class RolePermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(["name" => "app.users.index", "guard_name" => "web"]);
-        Permission::create(["name" => "app.users.create", "guard_name" => "web"]);
-        Permission::create(["name" => "app.users.show", "guard_name" => "web"]);
-        Permission::create(["name" => "app.users.edit", "guard_name" => "web"]);
-        Permission::create(["name" => "app.users.destroy", "guard_name" => "web"]);
+
+        $role1=Role::create(["name" => "Administrador"]);
+        Permission::create(["name" => "admin.users.index"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.users.create"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.users.show"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.users.edit"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.users.destroy"])->syncRoles([$role1]);
 
         //Roles
-        Permission::create(["name" => "app.roles.index", "guard_name" => "web"]);
-        Permission::create(["name" => "app.roles.create", "guard_name" => "web"]);
-        Permission::create(["name" => "app.roles.show", "guard_name" => "web"]);
-        Permission::create(["name" => "app.roles.edit", "guard_name" => "web"]);
-        Permission::create(["name" => "app.roles.destroy", "guard_name" => "web"]);
+        Permission::create(["name" => "admin.roles.index"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.roles.create"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.roles.show"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.roles.edit"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.roles.destroy"])->syncRoles([$role1]);
     }
 }
