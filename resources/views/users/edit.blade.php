@@ -8,14 +8,15 @@
         <div class="col-12 ">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <form action="{{ route('admin.users.store') }}" method="POST" id="formUser">
+                    <form action="{{ route('admin.users.update', $user) }}" method="POST" id="formUser">
                         @csrf
+                        @method('PUT')
                         <div class="row g-3">
-
                             <div class="col-6">
                                 <label for="">Usuario</label>
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name', '') }}">
+                                    <input type="text" class="form-control" name="name"
+                                        value="{{ old('name', $user->name) }}">
 
                                     @if ($errors->has('name'))
                                         <small class="text-danger">{{ $errors->first('name') }}</small>
@@ -26,54 +27,30 @@
                                 <label for="">Email</label>
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email"
-                                        value="{{ old('email', '') }}">
+                                        value="{{ old('email', $user->email) }}">
 
                                     @if ($errors->has('email'))
                                         <small class="text-danger">{{ $errors->first('email') }}</small>
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <label for="">Contraseña</label>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password', '') }}">
-
-                                    @if ($errors->has('password'))
-                                        <small class="text-danger">{{ $errors->first('password') }}</small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <label for="">Repita su contraseña</label>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="password_two"
-                                        value="{{ old('password_two', '') }}">
-
-                                    @if ($errors->has('password_two'))
-                                        <small class="text-danger">{{ $errors->first('password_two') }}</small>
-                                    @endif
-                                </div>
-                            </div>
                             <div class="col-12">
-                                <label for="">Rol</label>
+                                <label for="">Roles</label>
                                 <div class="form-floating">
-                                   
                                     <select name="rol" id="rol-id" class="form-select">
                                         <option value="" disabled selected>Selecciona un rol</option>
                                         @foreach ($roles as $rol)
-                                            <option value="{{ $rol->name }}" <?php echo old('rol', '') == $rol->name ? 'selected' : ''; ?>>
+                                            <option value="{{ $rol->name }}"
+                                                {{ old('rol', $roleUser) === $rol->name ? 'selected' : '' }}>
                                                 {{ $rol->name }}
                                             </option>
                                         @endforeach
                                     </select>
-                                    @if ($errors->has('rol'))
-                                        <small class="text-danger">{{ $errors->first('rol') }}</small>
-                                    @endif
                                 </div>
                             </div>
 
                             <div class="col-12 text-end">
-                                <button class="btn btn-primary btn-sm bg-logistic" type="submit">Crear</button>
+                                <button class="btn btn-primary btn-sm bg-logistic">Actualizar</button>
                             </div>
                         </div>
                     </form>
@@ -81,5 +58,4 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('assets/js/users/users.js') }}" defer></script>
 @endsection

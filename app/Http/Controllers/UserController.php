@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\auth\LoginUserRequest;
+use App\Http\Requests\users\CreateUserRequest;
+use App\Http\Requests\users\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -35,15 +38,27 @@ class UserController extends Controller
     }
     public function create()
     {
-        return view('users.create');
+        $roles= Role::all();
+        return view('users.create',compact('roles'));
     }
-    public function store()
+    public function store(CreateUserRequest $request)
     {
-        return "";
+        $user= User::create($request->all())->assignRole($request->rol);
+         return redirect()->route('admin.users.index')->with('message', 'Se creo el usuario correctamente');
     }
-    public function update()
+    public function edit(string $id){
+        $roles= Role::all();
+        $user= User::find($id);
+        //me trae el rol del usuario
+        $roleUser = $user->getRoleNames()->first();
+        return view('users.edit',compact('user','roles','roleUser'));
+    }
+    public function update(UpdateUserRequest $request, User $user)
     {
-        return "";
+        $rol = $request->input('rol');
+        $user->update($request->all());
+        $user->syncRoles([$rol]);
+        return redirect()->route('admin.users.edit', $user)->with(['message' => 'Usuario actualizado exitosamente']);
     }
     public function destroy()
     {

@@ -28,7 +28,7 @@
                             @if ($permissions['edit'])
                                 
                             
-                            <a href="" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{{ route('admin.users.edit',$user->id)}}" class="btn btn-sm btn-warning">Editar</a>
                             @endif
                             @if ($permissions['destroy'])
                                 

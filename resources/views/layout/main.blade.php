@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto J</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-vMlOeB2XkxH5AXgP5rSo33lHO9XrVIV9GrO75R5lC1m+MZZTtxD/J9tfhCmCG/wMTH2Iomn1WgMhtJOkwyVzTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -34,12 +35,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{url('admin/dashboard')}}">Home</a>
                     </li>
+                    @can('admin.users.index')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.users.index') }}">Usuario</a>
                     </li>
+                    @endcan
+                    @can('admin.roles.index')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.roles.index') }}">Roles</a>
                     </li>
+                    @endcan
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pendiente</a>
                     </li>
