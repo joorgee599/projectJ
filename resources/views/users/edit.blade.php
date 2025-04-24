@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@section('title', 'Usuarios')
 @section('content')
     <div class="row">
         <div class="col-12 mb-4">
@@ -50,7 +50,9 @@
                             </div>
 
                             <div class="col-12 text-end">
-                                <button class="btn btn-primary btn-sm bg-logistic">Actualizar</button>
+                                <button class="btn btn-primary btn-sm">
+                                    Actualizar Usuario
+                                </button>
                             </div>
                         </div>
                     </form>

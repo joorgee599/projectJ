@@ -28,8 +28,10 @@
                             
                             <a href="{{ route('admin.roles.edit',$rol->id)}}" class="btn btn-sm btn-warning">Editar</a>
                             @endif
-                            @if ($permissions['destroy'])
-                            <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+
+                            @if ($permissions['show'])
+                                <a href="{{ route('admin.roles.show', $rol->id) }}"
+                                    class="btn btn-sm btn-success">Ver</a>
                             @endif
                         </td>
 

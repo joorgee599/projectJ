@@ -45,9 +45,21 @@
                         <a class="nav-link" href="{{ route('admin.roles.index') }}">Roles</a>
                     </li>
                     @endcan
+                    @can('admin.products.index')
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pendiente</a>
+                        <a class="nav-link" href="{{ route('admin.products.index') }}">Productos</a>
                     </li>
+                    @endcan
+                    @can('admin.categories.index')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.categories.index') }}">Categorias</a>
+                    </li>
+                    @endcan
+                    @can('admin.brands.index')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.brands.index') }}">Marcas</a>
+                    </li>
+                    @endcan
                 </ul>
             </div>
 

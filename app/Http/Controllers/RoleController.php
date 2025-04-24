@@ -32,9 +32,10 @@ class RoleController extends Controller
         ];
         return view('roles.index', compact('roles', 'permissions'));
     }
-    public function show()
+    public function show(string $id)
     {
-        return "";
+        $role = Role::find($id);
+        return view('roles.show',compact('role'));
     }
     public function create()
     {
@@ -70,6 +71,9 @@ class RoleController extends Controller
         return [
             'users' => 'Usuarios',
             'roles' => 'Roles',
+            'products' => 'Productos',
+            'categories' => 'Categorias',
+            'brands' => 'Marcas',
 
         ];
     }

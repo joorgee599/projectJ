@@ -32,10 +32,6 @@ class UserController extends Controller
         ];
         return view('users.index',compact('users','permissions'));
     }
-    public function show()
-    {
-        return "";
-    }
     public function create()
     {
         $roles= Role::all();
@@ -46,6 +42,16 @@ class UserController extends Controller
         $user= User::create($request->all())->assignRole($request->rol);
          return redirect()->route('admin.users.index')->with('message', 'Se creo el usuario correctamente');
     }
+    public function show(string $id)
+    {
+        $user = User::find($id);
+        return view('users.show',compact('user'));
+    }
+
+
+
+
+
     public function edit(string $id){
         $roles= Role::all();
         $user= User::find($id);
@@ -60,10 +66,13 @@ class UserController extends Controller
         $user->syncRoles([$rol]);
         return redirect()->route('admin.users.edit', $user)->with(['message' => 'Usuario actualizado exitosamente']);
     }
-    public function destroy()
-    {
-        return view('users.index');
-    }
+    public function destroy(string $id)
+{
+    $user = User::findOrFail($id);
+    $user->delete(); // Esto hace soft delete si el modelo lo soporta
+
+    return redirect()->route('admin.users.index')->with('message', 'Usuario eliminado correctamente.');
+}
 
     
 }

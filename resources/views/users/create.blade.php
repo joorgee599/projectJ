@@ -1,9 +1,9 @@
 @extends('layout.main')
-
+@section('title', 'Usuarios')
 @section('content')
     <div class="row">
         <div class="col-12 mb-4">
-            <a class="btn btn-primary btn-sm bg-logistic" href="{{ route('admin.users.index') }}">Atrás</a>
+            <a class="btn btn-primary btn-sm" href="{{ route('admin.users.index') }}">Atrás</a>
         </div>
         <div class="col-12 ">
             <div class="card shadow-sm">
@@ -36,7 +36,8 @@
                             <div class="col-6">
                                 <label for="">Contraseña</label>
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password', '') }}">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        value="{{ old('password', '') }}">
 
                                     @if ($errors->has('password'))
                                         <small class="text-danger">{{ $errors->first('password') }}</small>
@@ -57,7 +58,7 @@
                             <div class="col-12">
                                 <label for="">Rol</label>
                                 <div class="form-floating">
-                                   
+
                                     <select name="rol" id="rol-id" class="form-select">
                                         <option value="" disabled selected>Selecciona un rol</option>
                                         @foreach ($roles as $rol)
@@ -73,7 +74,9 @@
                             </div>
 
                             <div class="col-12 text-end">
-                                <button class="btn btn-primary btn-sm bg-logistic" type="submit">Crear</button>
+                                <button class="btn btn-primary btn-sm" type="submit">
+                                    Crear usuario
+                                </button>
                             </div>
                         </div>
                     </form>
