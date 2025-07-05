@@ -74,6 +74,8 @@ class RoleController extends Controller
             'products' => 'Productos',
             'categories' => 'Categorias',
             'brands' => 'Marcas',
+            'providers' => 'Proveedores',
+            'inventories' => 'Inventarios',
 
         ];
     }

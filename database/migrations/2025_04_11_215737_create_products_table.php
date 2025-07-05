@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
             $table->tinyInteger('status')->default(1);
+             $table->integer('stock')->nullable()->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

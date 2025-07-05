@@ -50,5 +50,23 @@ class RolePermissionSeeder extends Seeder
         Permission::create(["name" => "admin.brands.show", "description" =>"Ver marcas"])->syncRoles([$role1]);
         Permission::create(["name" => "admin.brands.edit", "description" =>"Editar marcas"])->syncRoles([$role1]);
         Permission::create(["name" => "admin.brands.destroy", "description" =>"Eliminar marcas"])->syncRoles([$role1]);
+
+        Permission::create(["name" => "admin.inventories.index", "description" =>"Listar Inventario"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.inventories.create", "description" =>"Crear Inventario"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.inventories.show", "description" =>"Ver Inventario"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.inventories.edit", "description" =>"Editar Inventario"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.inventories.destroy", "description" =>"Eliminar Inventario"])->syncRoles([$role1]);
+
+        Permission::create(["name" => "admin.providers.index", "description" =>"Listar proveedores"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.providers.create", "description" =>"Crear proveedores"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.providers.show", "description" =>"Ver proveedores"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.providers.edit", "description" =>"Editar proveedores"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.providers.destroy", "description" =>"Eliminar proveedores"])->syncRoles([$role1]);
+
+        Permission::create(["name" => "admin.clients.index", "description" =>"Listar clientes"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.clients.create", "description" =>"Crear clientes"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.clients.show", "description" =>"Ver clientes"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.clients.edit", "description" =>"Editar clientes"])->syncRoles([$role1]);
+        Permission::create(["name" => "admin.clients.destroy", "description" =>"Eliminar clientes"])->syncRoles([$role1]);
     }
 }

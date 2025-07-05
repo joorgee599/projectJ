@@ -21,7 +21,8 @@ class ProductSeeder extends Seeder
             'price' => 1500,
             'image' => null,
             'category_id' => 1, // Asegúrate que la categoría 1 existe
-            'brand_id' => 1,    // Asegúrate que la marca 1 existe
+            'brand_id' => 1, 
+           //  'stock' => 5  
         ]);
 
        

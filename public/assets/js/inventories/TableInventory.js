@@ -1,0 +1,28 @@
+$(document).ready(function() {
+    $("#tableInventories").DataTable({
+        responsive: true,
+        order: [
+            [0, "DESC"],
+        ],
+        language: {
+            decimal: "",
+            emptyTable: "No hay información",
+            info: "Mostrando _START_ a _END_ de _TOTAL_ Inventario",
+            infoEmpty: "Mostrando 0 to 0 of 0 Inventario",
+            infoFiltered: "(Filtrado de _MAX_ total Inventario)",
+            infoPostFix: "",
+            thousands: ",",
+            lengthMenu: "Mostrar _MENU_ Inventario",
+            loadingRecords: "Cargando...",
+            processing: "Procesando...",
+            search: "Buscar:",
+            zeroRecords: "Sin resultados encontrados",
+            paginate: {
+                first: "Primero",
+                last: "Ultimo",
+                next: "Siguiente",
+                previous: "Anterior",
+            },
+        },
+    });
+});

@@ -60,6 +60,22 @@
                         <a class="nav-link" href="{{ route('admin.brands.index') }}">Marcas</a>
                     </li>
                     @endcan
+
+                    @can('admin.inventories.index')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.inventories.index') }}">Inventario</a>
+                    </li>
+                    @endcan
+                    @can('admin.providers.index')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.providers.index') }}">Proveedores</a>
+                    </li>
+                    @endcan
+                    @can('admin.clients.index')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.clients.index') }}">Clientes</a>
+                    </li>
+                    @endcan
                 </ul>
             </div>
 
