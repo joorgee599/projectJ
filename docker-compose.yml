@@ -23,8 +23,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: projectJ
     volumes:
       - dbdata:/var/lib/mysql
